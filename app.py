@@ -18,7 +18,7 @@ OPEN_API_MODEL = st.sidebar.selectbox(
    placeholder="Select OPENAI model",
 )
 st.session_state["openai_model"] = OPEN_API_MODEL
-OPENAI_SYSTEM_PROMT = st.sidebar.text_area("Add System Prompt", height=600 ,value="Add your prompt here! Make sure to refresh page for new prompt")
+OPENAI_SYSTEM_PROMT = st.sidebar.text_area("Add System Prompt", height=500)
 #print(OPENAI_SYSTEM_PROMT)
 if OPENAI_SYSTEM_PROMT:
     if {"role":"system", "content": f'{OPENAI_SYSTEM_PROMT}'} not in st.session_state.messages:
