@@ -9,7 +9,7 @@ if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-3.5-turbo"
 
 if "messages" not in st.session_state:
-    st.session_state.messages = [{"role":"assistant", "content": "Hi, how can I assist you today?"}]
+    st.session_state.messages = [{"role":"assistant", "content": "Welcome, Please add model and system prompt for the session!"}]
 
 OPEN_API_MODEL = st.sidebar.selectbox(
    "OPENAI model",
@@ -23,7 +23,7 @@ OPENAI_SYSTEM_PROMT = st.sidebar.text_area("Add System Prompt", height=500)
 if OPENAI_SYSTEM_PROMT:
     if {"role":"system", "content": f'{OPENAI_SYSTEM_PROMT}'} not in st.session_state.messages:
         st.session_state.messages.append({"role":"system", "content": f'{OPENAI_SYSTEM_PROMT}'})
-        st.session_state.messages.append({"role":"assistant", "content": "Thanks for adding prompt \n Hi, how can I assist you today?"})
+        st.session_state.messages.append({"role":"assistant", "content": "Thanks for adding prompt! \n Hi, how can I assist you today?"})
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
